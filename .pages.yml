@@ -1,0 +1,29 @@
+media:
+  input: public
+  output: /
+content:
+  - name: notes
+    label: Notes
+    type: collection
+    path: src/content/notes
+    view:
+      fields: [ title, draft, date ]
+    fields:
+      - { name: pubDate, label: Date, type: date }
+      - { name: updatedDate, label: Date, type: date }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: slug, label: Slug, type: string }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: draft, label: Draft, type: boolean }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: description, label: Description, type: string }
+      - { name: body, label: Body, type: rich-text }
+  - name: test
+    label: Test page
+    type: file
+    path: src/pages/test.mdx
+    fields:
+      - { name: layout, type: string, hidden: true, default: "../layouts/TestLayout.astro" }
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Description, type: string }
+      - { name: body, label: Body, type: rich-text, options: { input: public/assets, output: /assets } }
